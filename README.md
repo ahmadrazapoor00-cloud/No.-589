@@ -1,29 +1,43 @@
-# Garrison Public High School Management System 🏫
+# Qwen3.5-0.8B CPU Chat Space
 
-This project is a high-end, professional school management platform designed for Garrison Public High School, Burewala. It features a modern "iOS 26" aesthetic, online admissions, fee management, and a comprehensive admin command center.
+This Hugging Face Space provides a ChatGPT-like interface for the Qwen3.5-0.8B model running entirely on CPU. It's designed to work on free CPU-based instances without requiring GPU acceleration.
 
-## 🚀 Project Credits
-**Made by Team: RealHackers**
+## Features
 
-### 👥 Core Team Members
-*   **Mr Real**
-*   **TalhaXD**
-*   ...and the rest of the RealHackers crew.
+- ChatGPT-like chat interface with streaming token output
+- Adjustable parameters: temperature, top_p, max_new_tokens, repetition_penalty
+- "Thinking mode" toggle for enhanced reasoning capabilities
+- System prompt support
+- Conversation history management with truncation to prevent overload
+- Stop generation functionality
+- Automatic model download and caching
 
-## 🌐 Community & Support
-Join our community for updates, support, and collaboration:
+## How It Works
 
-> **Discord:** [Join RealHackers Discord](https://discord.gg/your-link-here)
+The application uses the Hugging Face Transformers library with the Qwen3.5-0.8B model. On first run, the model is automatically downloaded and cached. The interface is built with Gradio, providing a web-based chat experience.
 
----
+The model runs entirely on CPU with optimized settings:
+- `device_map="cpu"`
+- `torch_dtype=torch.float32`
+- `low_cpu_mem_usage=True`
 
-## ✨ Features
-- **Modern UI:** Advanced glassmorphism and iOS-inspired design system.
-- **Admin Dashboard:** Full control over admissions, fees, and site-wide events.
-- **Dynamic Events:** Real-time homepage promotions (sales, alerts, announcements) manageable from the admin panel.
-- **Fee Portal:** Digital fee structure with integrated payment simulation.
-- **Online Admissions:** Secure student registration with automated admin notification.
-- **Responsive Design:** Optimized for a seamless experience across all devices.
+## CPU Limitations
 
----
-*Built with passion by RealHackers.*
+- First run will be slower due to model download and initial loading
+- Response times may be slower compared to GPU inference
+- Large conversations may impact performance, so history is automatically truncated
+
+## Changing the Model
+
+To use a different model, modify the `MODEL_NAME` variable in `app.py` to point to another Hugging Face model ID.
+
+## First Run Considerations
+
+The first time you run this space, it will automatically download the Qwen3.5-0.8B model (~2.3GB). This may take several minutes depending on the network speed. Subsequent runs will use the cached model.
+
+## Requirements
+
+- Python 3.8+
+- PyTorch
+- Transformers >= 4.45.0
+- Gradio >= 4.0.0
