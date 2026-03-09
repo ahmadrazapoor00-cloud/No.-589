@@ -20,9 +20,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
-# Virtual Environment
+# Virtual environments
 venv/
 .venv/
 ENV/
@@ -30,32 +29,24 @@ ENV/
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # Logs
 *.log
 
-# Environment variables
+# Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Coverage
 .coverage
 coverage/
 htmlcov/
 
-# MyPy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pytest
-.pytest_cache/
-
 # Temporary files
 *.tmp
+*.swp
 *~
-```
+.DS_Store
+Thumbs.db
 ```
